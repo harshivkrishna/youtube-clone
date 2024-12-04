@@ -6,12 +6,13 @@ import Video from './pages/Video/Video'
 
 const App = () => {
   const [sidebar,setSidebar]=useState(true);
+  const [searchData, setSearchData] = useState("");
 
   return (
     <div>
-      <Navbar setSidebar={setSidebar} />
+      <Navbar setSidebar={setSidebar} setSearchData={setSearchData} />
       <Routes>
-        <Route path='/' element={<Home sidebar={sidebar} />}></Route>
+        <Route path='/' element={<Home sidebar={sidebar} searchData={searchData}  />}></Route>
         <Route path='/video/:categoryId/:videoId' element={<Video></Video>}></Route>
       </Routes>
     </div>
